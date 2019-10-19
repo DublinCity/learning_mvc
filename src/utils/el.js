@@ -11,8 +11,12 @@ const el = (type, attr, value, event) => {
 };
 
 export const append = (el, ...children) => {
-  children.forEach(child => el.append(child));
+  el.append(...children);
   return el;
 };
 
+export const compose = (...sibling) => {
+  const frag = document.createDocumentFragment();
+  return append(frag, ...sibling);
+};
 export default el;

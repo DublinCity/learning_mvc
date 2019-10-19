@@ -25,8 +25,9 @@ export default class HomeModel extends Model {
     });
     this.notify();
   }
-  add(...details) {
-    this._list.push(...details);
+  add(title, memo) {
+    this._list.push(new HomeDetailModel(this._list.length + 1, title, memo));
+    this.notify();
   }
   get list() {
     return [...this._list];
